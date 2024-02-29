@@ -1,0 +1,21 @@
+public class Calculadora {
+
+    public static int soma(int a, int b) {
+        // Soma dois números inteiros
+        return a + b;
+    }
+
+    public static int subtracao(int a, int b) {
+        // Subtrai um número inteiro do outro
+        return a - b;
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de uso das funções soma e subtracao
+        int resultadoSoma = soma(10, 5);
+        int resultadoSubtracao = subtracao(10, 5);
+
+        System.out.println("Soma: " + resultadoSoma);
+        System.out.println("Subtração: " + resultadoSubtracao);
+    }
+}
