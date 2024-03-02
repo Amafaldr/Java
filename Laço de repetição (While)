@@ -1,0 +1,11 @@
+public class LacoWhile {
+
+    public static void main(String[] args) {
+        // Imprime os números de 1 a 10
+        int contador = 1;
+        while (contador <= 10) {
+            System.out.println(contador);
+            contador++;
+        }
+    }
+}
