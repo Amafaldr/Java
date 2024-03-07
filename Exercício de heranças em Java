@@ -1,0 +1,83 @@
+class Funcionario {
+    private String nome;
+    private String cpf;
+    private double salario;
+    private int faltas;
+
+    public Funcionario(String nome, String cpf, double salario) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.salario = salario;
+        this.faltas = 0;
+    }
+
+    public void registrarFalta() {
+        this.faltas++;
+    }
+
+    public double calcularDesconto() {
+        return (salario / 20) * faltas;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
+}
+
+class Vendedor extends Funcionario {
+    private double comissao;
+    private double totalVendas;
+
+    public Vendedor(String nome, String cpf, double salario, double comissao) {
+        super(nome, cpf, salario);
+        this.comissao = comissao;
+        this.totalVendas = 0;
+    }
+
+    public void registrarVenda(double valorVenda) {
+        this.totalVendas += valorVenda;
+    }
+
+    public double calcularComissao() {
+        return totalVendas * (comissao / 100);
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() + ", CPF: " + getCpf() + ", Salário: " + getSalario() + ", Total de Vendas: " + totalVendas + ", Comissão: " + calcularComissao();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Funcionario funcionario = new Funcionario("João", "123.456.789-00", 2000);
+        funcionario.registrarFalta();
+        funcionario.registrarFalta();
+        double desconto = funcionario.calcularDesconto();
+        System.out.println("Desconto de faltas: " + desconto);
+
+        Vendedor vendedor = new Vendedor("Maria", "987.654.321-00", 1500, 5);
+        vendedor.registrarVenda(2000);
+        vendedor.registrarVenda(3000);
+        double comissao = vendedor.calcularComissao();
+        System.out.println("Comissão do vendedor: " + comissao);
+
+        System.out.println("Holerith do Funcionário:");
+        System.out.println("Nome: " + funcionario.getNome() + ", CPF: " + funcionario.getCpf() + ", Salário: " + funcionario.getSalario() + ", Desconto: " + desconto);
+
+        System.out.println("Holerith do Vendedor:");
+        System.out.println(vendedor);
+    }
+}
