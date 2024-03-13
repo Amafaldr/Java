@@ -1,0 +1,81 @@
+public class Ponto {
+    // Atributos (coordenadas X e Y)
+    private double x;
+    private double y;
+ 
+    // Construtor padrão (inicia o ponto na origem)
+    public Ponto() {
+        this.x = 0.0;
+        this.y = 0.0;
+    }
+ 
+    // Construtor parametrizado
+    public Ponto(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+ 
+    // Copy constructor
+    public Ponto(Ponto outroPonto) {
+        this.x = outroPonto.x;
+        this.y = outroPonto.y;
+    }
+ 
+    // Getters e setters
+    public double getX() {
+        return x;
+    }
+ 
+    public void setX(double newX) {
+        this.x = newX;
+    }
+ 
+    public double getY() {
+        return y;
+    }
+ 
+    public void setY(double newY) {
+        this.y = newY;
+    }
+ 
+    // Atribui novos valores para as coordenadas X e Y
+    public void setXY(double newX, double newY) {
+        this.x = newX;
+        this.y = newY;
+    }
+ 
+    // Copia o valor dos atributos de pt para os atributos do objeto
+    public void assign(Ponto pt) {
+        this.x = pt.x;
+        this.y = pt.y;
+    }
+ 
+    // Retorna o delta X para o valor informado (vX - X)
+    public double deltaX(double vX) {
+        return vX - this.x;
+    }
+ 
+    // Retorna o delta Y para o valor informado (vY - Y)
+    public double deltaY(double vY) {
+        return vY - this.y;
+    }
+ 
+    // Calcula e retorna a distância do ponto até a posição informada pelos parâmetros
+    public double distance(double posX, double posY) {
+        double deltaX = deltaX(posX);
+        double deltaY = deltaY(posY);
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+ 
+    // Desloca o ponto adicionando os valores informados às coordenadas do ponto
+    public void desloc(double dX, double dY) {
+        this.x += dX;
+        this.y += dY;
+    }
+ 
+    // Faz o escalonamento do ponto multiplicando as coordenadas pelo fator de escalonamento
+    public void escale(double factor) {
+        this.x *= factor;
+        this.y *= factor;
+    }
+}
